@@ -9,11 +9,11 @@ class User extends Model {
 
 	const SESSION = "User";
 
-	protected $fields = [
-		"iduser", "idperson", "deslogin", "despassword", "inadmin", "dtergister"
-	];
+	//protected $fields = [
+	//	"iduser", "idperson", "deslogin", "despassword", "inadmin", "dtergister"
+	//];
 
-	public static function login($login, $password):User
+	public static function login($login, $password)//:User
 	{
 
 		$sql = new Sql();
@@ -29,7 +29,8 @@ class User extends Model {
 
 		$data = $results[0];
 
-		if (password_verify($password, $data["despassword"]) === true) {
+		if (password_verify($password, $data["despassword"]) === true)
+		{
 
 			$user = new User();
 
@@ -41,7 +42,6 @@ class User extends Model {
 
 		} else {
 			throw new \Exception("Usuário inexistente ou senha inválida.");
-
 		}
 
 	}
@@ -51,28 +51,25 @@ class User extends Model {
 
 		if (
 			!isset($_SESSION[User::SESSION])
-			|| 
+			||
 			!$_SESSION[User::SESSION]
 			||
 			!(int)$_SESSION[User::SESSION]["iduser"] > 0
 			||
 			(bool)$_SESSION[User::SESSION]["inadmin"] !== $inadmin
 		) {
-			
+
 			header("Location: /admin/login");
 			exit;
-
 		}
-
 	}
 
 	public static function logout()
 	{
 
 		$_SESSION[User::SESSION] = NULL;
-
+		
 	}
-
 }
 
- ?>
+?>

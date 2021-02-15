@@ -12,8 +12,8 @@ class Model {
 		$method = substr($name, 0, 3);
         $fieldName = substr($name, 3, strlen($name));
 
-		if (in_array($fieldName, $this->fields))
-		{
+		//if (in_array($fieldName, $this->fields))
+		//{
 			
 			switch ($method)
             {
@@ -26,7 +26,7 @@ class Model {
                     break;
             }
 
-		}
+		//}
 
 	}
 

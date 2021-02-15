@@ -22,7 +22,7 @@ class Page {
 		$this->options = array_merge($this->defaults, $opts);
 
 		$config = array(
-		    "base_url"      => null,
+		    //"base_url"      => null,
 		    "tpl_dir"       => $_SERVER['DOCUMENT_ROOT'].$tpl_dir,
 		    "cache_dir"     => $_SERVER['DOCUMENT_ROOT']."/views-cache/",
 		    "debug"         => false
@@ -32,27 +32,18 @@ class Page {
 
 		$this->tpl = new Tpl();
 
-		if ($this->options['data']) $this->setData($this->options['data']);
+		//if ($this->options['data']) 
+		$this->setData($this->options['data']);
 
-		if ($this->options['header'] === true) $this->tpl->draw("header", false);
-
-	}
-
-	public function __destruct()
-	{
-
-		if ($this->options['footer'] === true) $this->tpl->draw("footer", false);
+		if ($this->options['header'] === true) $this->tpl->draw("header");
 
 	}
 
 	private function setData($data = array())
 	{
 
-		foreach($data as $key => $val)
-		{
-
+		foreach($data as $key => $val) {
 			$this->tpl->assign($key, $val);
-
 		}
 
 	}
@@ -63,6 +54,12 @@ class Page {
 		$this->setData($data);
 
 		return $this->tpl->draw($tplname, $returnHTML);
+
+	}
+
+	public function __destruct(){
+
+		if ($this->options['footer'] === true) $this->tpl->draw("footer");
 
 	}
 
