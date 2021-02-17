@@ -20,6 +20,8 @@ class Sql {
 			Sql::PASSWORD
 		);
 
+		$this->conn->exec("set names utf8");
+
 	}
 
 	private function setParams($statement, $parameters = array())
