@@ -1,12 +1,17 @@
 <?php
 
 use \Hcode\Page;
+use \Hcode\Model\Product;
 
 $app->get('/', function(){
 
-    $page = new Page();
+    $products = \Hcode\Model\Product::listAll();
 
-    $page->setTpl("index");
+    $page = new \Hcode\Page();
+
+    $page->setTpl("index", [
+        'products'=>Product::checkList($products)
+    ]);
 
 });
 
