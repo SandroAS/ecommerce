@@ -94,10 +94,10 @@
                                 </div>
                             </div>
                             
-                            <h2><a href="/produts/{$value.desurl}">Samsung Galaxy s5- 2015</a></h2>
+                            <h2><a href="/produts/{$value.desurl}">{$value.desproduct}</a></h2>
                             
                             <div class="product-carousel-price">
-                                <ins>R${$value.vlprice}</ins> <del>$100.00</del>
+                                <ins>R${function="formatPrice($value.vlprice)"}</ins>
                             </div> 
                         </div>
                         {/loop}

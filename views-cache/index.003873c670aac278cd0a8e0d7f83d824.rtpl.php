@@ -94,10 +94,10 @@
                                 </div>
                             </div>
                             
-                            <h2><a href="/produts/<?php echo htmlspecialchars( $value1["desurl"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">Samsung Galaxy s5- 2015</a></h2>
+                            <h2><a href="/produts/<?php echo htmlspecialchars( $value1["desurl"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["desproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a></h2>
                             
                             <div class="product-carousel-price">
-                                <ins>R$<?php echo htmlspecialchars( $value1["vlprice"], ENT_COMPAT, 'UTF-8', FALSE ); ?></ins> <del>$100.00</del>
+                                <ins>R$<?php echo formatPrice($value1["vlprice"]); ?></ins>
                             </div> 
                         </div>
                         <?php } ?>
