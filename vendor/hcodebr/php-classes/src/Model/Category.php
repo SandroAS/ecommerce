@@ -116,7 +116,7 @@ class Category extends Model {
 
 		$sql = new Sql();
 
-		$sql->select("
+		$results = $sql->select("
 			SELECT SQL_CALC_FOUND_ROWS *
 			FROM tb_products a
 			INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
@@ -127,7 +127,7 @@ class Category extends Model {
 			':idcategory'=>$this->getidcategory()
 		]);
 
-		$resultadoTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+		$resultTotal = $sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 
 		return [
 			'data'=>Product::checkList($results),
