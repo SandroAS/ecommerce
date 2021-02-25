@@ -310,7 +310,7 @@ class Cart extends Model {
 	{
 
 		$this->updateFreight();
-
+		
 		$totals = $this->getProductsTotals();
 
 		$this->setvlsubtotal($totals['vlprice']);
