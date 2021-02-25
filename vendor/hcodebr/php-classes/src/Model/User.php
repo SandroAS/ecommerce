@@ -16,6 +16,13 @@ class User extends Model {
 	const ERROR_REGISTER = "UserErrorRegister";
 	const SUCCESS = "UserSucesss";
 
+	
+	protected $fields = [
+		"iduser", "idperson", "deslogin", "despassword",
+		"desemail", "nrphone", "inadmin", "dtergister",
+		"desperson"
+	];
+	
 	public static function getFromSession()
 	{
 
@@ -64,12 +71,6 @@ class User extends Model {
 		}
 
 	}
-
-	protected $fields = [
-		"iduser", "idperson", "deslogin", "despassword",
-		"desemail", "nrphone", "inadmin", "dtergister",
-		"desperson"
-	];
 
 	public static function login($login, $password)
 	{
